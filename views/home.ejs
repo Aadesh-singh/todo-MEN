@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Todo App</title>
+    </head>
+    <body>
+        <form action="/create-task" method="POST">
+            <label for="des">
+                <input type="text" name="desc" id="desc" placeholder="write description" required>
+            </label>
+            <label for="type">
+                <select name="category" id="category" required>
+                    <option value="">select a category</option>
+                    <option value="work">work</option>
+                    <option value="important">important</option>
+                    <option value="college">college</option>
+                    <option value="personal">personal</option>
+                    <option value="home">home</option>
+                </select>
+            </label>
+            <label for="dueDate">
+                <input type="date" name="dueDate" id="dueDate" required>
+            </label>
+
+            <input type="submit" value="Add task">
+        </form>
+
+        <% for(let i of tasklist) { %>
+            <div>
+                <input type="checkbox" name="" id="">
+                    <%= i.desc %>
+                    <%= i.dueDate %>
+                    <%= i.category %>
+                </input>
+            </div>    
+        <% } %>
+    </body>
+</html>
