@@ -1,8 +1,12 @@
 <html>
     <head>
         <title>Todo App</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
+        <div class="parent">
+        <h1>Todo App</h1>
         <form action="/create-task" method="POST">
             <label for="des">
                 <input type="text" name="desc" id="desc" placeholder="write description" required>
@@ -21,17 +25,25 @@
                 <input type="date" name="dueDate" id="dueDate" required>
             </label>
 
-            <input type="submit" value="Add task">
+            <div class="parent1">
+                <input type="submit" value="+ Add Task">
+                <!-- <a href="#">Edit Task <i class="fas fa-edit"></i></a> -->
+                <a href="#">Remove Task <i class="fas fa-trash"></i></a>
+            </div>
         </form>
 
         <% for(let i of tasklist) { %>
-            <div>
+            <div class="parent2">
                 <input type="checkbox" name="" id="">
-                    <%= i.desc %>
-                    <%= i.dueDate %>
-                    <%= i.category %>
-                </input>
+                    <div class="cp">
+                        <span class="desc"><%= i.desc %></span>
+                        <span class="date"><%= i.dueDate %></span>
+                        <span class="cat"><i class="fas fa-tag"></i> <%= i.category %></span>
+                    </div>
+                <a href="/delete-task/?id=<%= i._id%>" class="delete"><i class="fas fa-trash"></i></a>
+                <a href="/edit-task/?id=<%= i._id%>&desc=<%= i.desc%>&due=<%=i.dueDate%>" class="delete"><i class="fas fa-edit"></i></a>
             </div>    
         <% } %>
+        </div>
     </body>
 </html>

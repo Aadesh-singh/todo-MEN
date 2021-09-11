@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>edit form</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <form action="/update-task/?id=<%= id%>" method="POST">
+            <label for="des">
+                <input type="text" name="desc" id="desc" placeholder="write description" value="<%= desc%>" required>
+            </label>
+            <label for="type">
+                <select name="category" id="category" required>
+                    <option value="">select a category</option>
+                    <option value="work">work</option>
+                    <option value="important">important</option>
+                    <option value="college">college</option>
+                    <option value="personal">personal</option>
+                    <option value="home">home</option>
+                </select>
+            </label>
+            <label for="dueDate">
+                <input type="date" name="dueDate" id="dueDate" required>
+            </label>
+
+            <input type="submit" value="update task">
+        </form>
+    </body>
+</html>
