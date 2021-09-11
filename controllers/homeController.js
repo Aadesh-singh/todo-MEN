@@ -23,3 +23,42 @@ module.exports.createTask = function(req, res){
         return res.redirect('back');
     })
 }
+
+module.exports.deleteTask = function(req, res){
+    const id = req.query.id;
+
+    tasks.findByIdAndDelete(id, function(err){
+        if(err){
+            console.log('error in deleting the file: ',err);
+            return;
+        }
+        console.log('deleted succesfully');
+        return res.redirect('back');
+    });
+}
+
+module.exports.editTask = function(req, res){
+    const id = req.query.id;
+    const desc = req.query.desc;
+    const due = req.query.due;
+    console.log(id);
+
+    return res.render('edit', {
+        id: id,
+        desc: desc,
+        due: due
+    });
+}
+
+module.exports.updateTask = function(req,res){
+    const id = req.query.id;
+    console.log("update chala", id);
+    tasks.findByIdAndUpdate(id, req.body, function(err){
+        if(err){
+            console.log("error in updating the content     ", err);
+            return;
+        }
+        console.log("Updated successfully");
+        return res.redirect('/');
+    });
+}
