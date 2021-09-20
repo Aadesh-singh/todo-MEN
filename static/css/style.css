@@ -73,6 +73,7 @@ form a{
     margin: 10px 0px 0px;
     flex-basis: 40%;
     text-align: center;
+    cursor: pointer;
 }
 .parent1{
     display: flex;
