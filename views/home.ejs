@@ -54,7 +54,6 @@
                 console.log(checkbox);
                 for(let j=0; j< checkbox.length; j++){
                     if(checkbox[j].checked){
-                        const idf = checkbox[j].id;
                         window.location.href = "http://localhost:8000/delete-task/?id=" + checkbox[j].id;
                     }
                 }
