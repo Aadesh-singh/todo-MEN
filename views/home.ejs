@@ -28,13 +28,13 @@
             <div class="parent1">
                 <input type="submit" value="+ Add Task">
                 <!-- <a href="#">Edit Task <i class="fas fa-edit"></i></a> -->
-                <a href="">Remove Task <i class="fas fa-trash"></i></a>
+                <a  onclick="remove()">Remove Task <i class="fas fa-trash"></i></a>
             </div>
         </form>
 
         <% for(let i of tasklist) { %>
             <div class="parent2">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="<%= i._id%>">
                     <div class="cp">
                         <span class="desc"><%= i.desc %></span>
                         <span class="date"><%= i.dueDate %></span>
@@ -48,5 +48,17 @@
 
 
         <script src="/js/script.js"></script>
+        <script>
+            function remove(){
+                var checkbox = document.querySelectorAll('input[type="checkbox"]');
+                console.log(checkbox);
+                for(let j=0; j< checkbox.length; j++){
+                    if(checkbox[j].checked){
+                        const idf = checkbox[j].id;
+                        window.location.href = "http://localhost:8000/delete-task/?id=" + checkbox[j].id;
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
